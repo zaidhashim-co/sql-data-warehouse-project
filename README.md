@@ -15,6 +15,15 @@ The data warehouse is built following the industry-standard multi-layer architec
 2. **⬜ Silver Layer (Cleanse & Transform):** Handles data deduplication, handling missing values, standardizing data types, and consolidating schema logic.
 3. **🟨 Gold Layer (Analytical / Modeling):** The final business-aligned layer structured using **Star Schema Modeling**. It hosts optimized **Fact Tables** and **Dimension Tables** designed for analytical speed and clean dashboard reporting.
 
+---
+
+## 📜 License
+This project is licensed under the **MIT License**. This means you are free to use, modify, and distribute the code for both personal and commercial purposes, provided that the original copyright notice and permission notice are included. 
+
+*For more details, see the [LICENSE](LICENSE) file included in this repository.*
+
+
+
 
 ---
 
