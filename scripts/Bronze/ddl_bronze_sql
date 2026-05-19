@@ -1,0 +1,92 @@
+/*
+===============================================================================
+DDL Script: Create Bronze Tables
+===============================================================================
+Script Purpose:
+    This script creates tables in the 'bronze' schema, dropping existing tables
+    if they already exist.
+    Run this script to re-define the DDL structure of 'bronze' Tables.
+
+Source Systems:
+    - CRM: crm_cust_info, crm_prd_info, crm_details_info
+    - ERP: erp_cust_az12, ero_loc_a101, ERP_PX_CAT_G1V2
+===============================================================================
+*/
+
+
+IF OBJECT_ID('BRONZE.CRM_CUST_INFO','U') IS NOT NULL
+DROP TABLE BRONZE.CRM_CUST_INFO ;
+GO
+
+CREATE TABLE bronze.crm_cust_info(
+	cst_id int ,
+	cst_key nvarchar (50) ,
+	cst_first_name nvarchar(50) ,
+	cst_last_name nvarchar (50) ,
+	cst_material_status nvarchar(50),
+	cst_gender nvarchar(50),
+	cst_create_date date
+);
+GO
+IF OBJECT_ID('BRONZE.CRM_PRD_INFO','U') IS NOT NULL
+DROP TABLE BRONZE.CRM_PRD_INFO ;
+GO
+
+CREATE TABLE bronze.crm_PRD_info(
+	PRD_id int ,
+	PRD_key nvarchar (50) ,
+	PRD_NM nvarchar(50) ,
+	cst_COST INT (50) ,
+	PRD_LINE nvarchar(50),
+	PRD_DTART_DT DATETIME,
+	PRD_END_TIME DATETIME
+);
+GO
+IF OBJECT_ID('BRONZE.CRM_SALES_DETAILS','U') IS NOT NULL
+DROP TABLE BRONZE.CRM_SALES_DETAILS ;
+GO
+
+CREATE TABLE bronze.crm_details_info(
+	sls_ord_num nvarchar(50) ,
+	sls_prd_key nvarchar (50) ,
+	sls_cust_id int ,
+	sls_order_dt int ,
+	sls_ship_dt int,
+	sls_due_dt int,
+	sls_sales int,
+	sls_quantity int,
+	sls_price_int
+);
+GO
+IF OBJECT_ID('BRONZE.ERP_CUST_AZ12','U') IS NOT NULL
+DROP TABLE BRONZE.ERP_CUST_AZ12 ;
+GO
+
+CREATE TABLE bronze.erp_cust_az12(
+	
+	cid nvarchar (50) ,
+	bdate date ,
+	gen nvarchar (50),
+);
+GO
+IF OBJECT_ID('BRONZE.ERP_LOC_A101','U') IS NOT NULL
+DROP TABLE BRONZE.ERP_LOC_A101 ;
+GO
+
+CREATE TABLE bronze.ero_loc_a101(
+	cid NVARCHAR (50),
+	Cnrty nvarchar (50) ,
+	
+);
+GO
+IF OBJECT_ID('BRONZE.ERP_PX_CAT_G1V2','U') IS NOT NULL
+DROP TABLE BRONZE.ERP_PX_CAT_G1V2 ;
+GO
+
+CREATE TABLE bronze.ERP_PX_CAT_G1V2(
+	id int NULL,
+	CAT NVARCHAR(50),
+	SUBCAT NVARCHAR(50),
+	MAINTENANCE NVARCHAR(50)
+
+);
